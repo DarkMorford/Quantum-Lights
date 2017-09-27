@@ -1,15 +1,25 @@
 package net.darkmorford.biglight.proxy;
 
 import net.darkmorford.biglight.BigLight;
+import net.darkmorford.biglight.block.BlockLamp;
 import net.darkmorford.biglight.config.GeneralConfig;
+import net.darkmorford.biglight.init.Blocks;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;
 
+@Mod.EventBusSubscriber
 public class CommonProxy
 {
 	private static Configuration config;
@@ -49,5 +59,21 @@ public class CommonProxy
 		{
 			config.save();
 		}
+	}
+
+	@SubscribeEvent
+	public static void registerBlocks(RegistryEvent.Register<Block> event)
+	{
+		IForgeRegistry<Block> REGISTRY = event.getRegistry();
+
+		REGISTRY.register(new BlockLamp());
+	}
+
+	@SubscribeEvent
+	public static void registerItems(RegistryEvent.Register<Item> event)
+	{
+		IForgeRegistry<Item> REGISTRY = event.getRegistry();
+
+		REGISTRY.register(new ItemBlock(Blocks.blockLamp).setRegistryName(Blocks.blockLamp.getRegistryName()));
 	}
 }
