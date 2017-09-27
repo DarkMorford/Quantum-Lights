@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "biglight:lamp"
+	},
+	"pattern": [
+		"gtg",
+		"t t",
+		"gtg"
+	],
+	"key": {
+		"g": {
+			"item": "minecraft:glowstone"
+		},
+		"t": {
+			"item": "minecraft:torch"
+		}
+	}
+}
