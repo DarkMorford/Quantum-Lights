@@ -1,0 +1,14 @@
+[{
+    "modid": "biglight",
+    "name": "Big Light",
+    "description": "A large-scale light source.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/DarkMorford/Big-Light",
+    "updateUrl": "",
+    "authorList": ["DarkMorford"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+}]
