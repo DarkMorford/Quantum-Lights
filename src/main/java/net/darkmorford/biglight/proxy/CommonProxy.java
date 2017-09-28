@@ -4,6 +4,7 @@ import net.darkmorford.biglight.BigLight;
 import net.darkmorford.biglight.block.BlockLamp;
 import net.darkmorford.biglight.config.GeneralConfig;
 import net.darkmorford.biglight.init.Blocks;
+import net.darkmorford.biglight.tileentity.TileEntityLamp;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.Level;
 
@@ -67,6 +69,7 @@ public class CommonProxy
 		IForgeRegistry<Block> REGISTRY = event.getRegistry();
 
 		REGISTRY.register(new BlockLamp());
+		GameRegistry.registerTileEntity(TileEntityLamp.class, "lamp");
 	}
 
 	@SubscribeEvent
