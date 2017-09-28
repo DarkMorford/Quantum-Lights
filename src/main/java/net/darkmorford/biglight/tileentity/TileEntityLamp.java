@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EnumSkyBlock;
 
 public class TileEntityLamp extends TileEntity implements ITickable
 {
@@ -72,7 +73,7 @@ public class TileEntityLamp extends TileEntity implements ITickable
 	{
 		IBlockState blockState = world.getBlockState(pos);
 
-		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLight(pos) < GeneralConfig.maximumLight)
+		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLightFor(EnumSkyBlock.BLOCK, pos) < GeneralConfig.maximumLight)
 		{
 			world.setBlockState(pos, LIGHT_BLOCK.getStateFromMeta(LIGHT_BLOCK_META), 2 | 16);
 		}
