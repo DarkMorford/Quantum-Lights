@@ -13,7 +13,7 @@ public class BlockLamp extends Block
 {
 	public BlockLamp()
 	{
-		super(Material.ROCK);
+		super(Material.CIRCUITS);
 		setUnlocalizedName("lamp");
 		setRegistryName("lamp");
 

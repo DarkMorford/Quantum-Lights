@@ -4,13 +4,16 @@
 		"item": "biglight:lamp"
 	},
 	"pattern": [
-		"gtg",
-		"t t",
-		"gtg"
+		"dtd",
+		"tgt",
+		"dtd"
 	],
 	"key": {
 		"g": {
 			"item": "minecraft:glowstone"
+		},
+		"d": {
+			"item": "minecraft:glowstone_dust"
 		},
 		"t": {
 			"item": "minecraft:torch"
