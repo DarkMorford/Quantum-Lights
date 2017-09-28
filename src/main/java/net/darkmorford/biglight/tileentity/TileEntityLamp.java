@@ -69,6 +69,7 @@ public class TileEntityLamp extends TileEntity implements ITickable
 		tryPlaceLightBlock(new BlockPos(x, y, z));
 	}
 
+	@SuppressWarnings("deprecation")
 	private void tryPlaceLightBlock(BlockPos pos)
 	{
 		IBlockState blockState = world.getBlockState(pos);
