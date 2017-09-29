@@ -54,7 +54,7 @@ public class TileEntityLamp extends TileEntity implements ITickable
 
 		for (int posX = -radius; posX <= radius; ++posX)
 		{
-			for (int posY = -radius; posY <= 0; ++posY)
+			for (int posY = -radius; posY <= radius; ++posY)
 			{
 				for (int posZ = -radius; posZ <= radius; ++posZ)
 				{
@@ -74,7 +74,7 @@ public class TileEntityLamp extends TileEntity implements ITickable
 	{
 		IBlockState blockState = world.getBlockState(pos);
 
-		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLightFor(EnumSkyBlock.BLOCK, pos) < GeneralConfig.maximumLight)
+		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLightFromNeighborsFor(EnumSkyBlock.BLOCK, pos) < GeneralConfig.maximumLight)
 		{
 			world.setBlockState(pos, LIGHT_BLOCK.getStateFromMeta(LIGHT_BLOCK_META), 2 | 16);
 		}
