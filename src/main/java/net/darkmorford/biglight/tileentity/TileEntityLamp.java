@@ -38,6 +38,13 @@ public class TileEntityLamp extends TileEntity implements ITickable
 		int posY = pos.getY() - offsetY;
 		int posZ = pos.getZ() + offsetZ;
 
+		// Put lights near ground level
+		int maxLightHeight = world.getHeight(posX, posZ) + 4;
+		if (posY > maxLightHeight)
+		{
+			posY = maxLightHeight;
+		}
+
 		// Don't place lights too close to bedrock
 		if (posY < 5)
 		{
@@ -74,7 +81,7 @@ public class TileEntityLamp extends TileEntity implements ITickable
 	{
 		IBlockState blockState = world.getBlockState(pos);
 
-		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLightFromNeighborsFor(EnumSkyBlock.BLOCK, pos) < GeneralConfig.maximumLight)
+		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLight(pos, true) < GeneralConfig.maximumLight)
 		{
 			world.setBlockState(pos, LIGHT_BLOCK.getStateFromMeta(LIGHT_BLOCK_META), 2 | 16);
 		}
