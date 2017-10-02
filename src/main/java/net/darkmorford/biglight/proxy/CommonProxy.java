@@ -2,6 +2,7 @@ package net.darkmorford.biglight.proxy;
 
 import net.darkmorford.biglight.BigLight;
 import net.darkmorford.biglight.block.BlockLamp;
+import net.darkmorford.biglight.block.BlockLightAir;
 import net.darkmorford.biglight.config.GeneralConfig;
 import net.darkmorford.biglight.init.Blocks;
 import net.darkmorford.biglight.tileentity.TileEntityLamp;
@@ -70,6 +71,8 @@ public class CommonProxy
 
 		REGISTRY.register(new BlockLamp());
 		GameRegistry.registerTileEntity(TileEntityLamp.class, BigLight.MODID + ":lamp");
+
+		REGISTRY.register(new BlockLightAir());
 	}
 
 	@SubscribeEvent
