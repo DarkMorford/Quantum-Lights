@@ -4,15 +4,50 @@ import net.darkmorford.biglight.config.GeneralConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagLong;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumSkyBlock;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class TileEntityLamp extends TileEntity implements ITickable
 {
 	private static final Block LIGHT_BLOCK      = Blocks.GLOWSTONE;
 	private static final int   LIGHT_BLOCK_META = 0;
+
+	private Set<BlockPos> createdLights = new HashSet<>();
+
+	@Override
+	public void readFromNBT(NBTTagCompound compound)
+	{
+		super.readFromNBT(compound);
+
+		NBTTagList lightList = compound.getTagList("lights", 4);
+		for (NBTBase tag : lightList)
+		{
+			createdLights.add(BlockPos.fromLong(((NBTTagLong)tag).getLong()));
+		}
+	}
+
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound compound)
+	{
+		super.writeToNBT(compound);
+
+		NBTTagList lightList = new NBTTagList();
+		for (BlockPos light : createdLights)
+		{
+			lightList.appendTag(new NBTTagLong(light.toLong()));
+		}
+		compound.setTag("lights", lightList);
+
+		return compound;
+	}
 
 	@Override
 	public void update()
@@ -84,6 +119,8 @@ public class TileEntityLamp extends TileEntity implements ITickable
 		if (world.isAirBlock(pos) && blockState.getBlock() != LIGHT_BLOCK && world.getLight(pos, true) < GeneralConfig.maximumLight)
 		{
 			world.setBlockState(pos, LIGHT_BLOCK.getStateFromMeta(LIGHT_BLOCK_META), 2 | 16);
+			createdLights.add(pos);
+			markDirty();
 		}
 	}
 
@@ -98,7 +135,7 @@ public class TileEntityLamp extends TileEntity implements ITickable
 
 		if (blockState.getBlock() == LIGHT_BLOCK && LIGHT_BLOCK.getMetaFromState(blockState) == LIGHT_BLOCK_META)
 		{
-			world.setBlockToAir(pos);
+			world.setBlockState(pos, Blocks.AIR.getDefaultState(), 2 | 16);
 		}
 	}
 }
