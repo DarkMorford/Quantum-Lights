@@ -27,6 +27,8 @@ public class TileEntityLamp extends TileEntity implements ITickable
 	{
 		super.readFromNBT(compound);
 
+		createdLights.clear();
+
 		NBTTagList lightList = compound.getTagList("lights", 4);
 		for (NBTBase tag : lightList)
 		{
@@ -92,18 +94,12 @@ public class TileEntityLamp extends TileEntity implements ITickable
 
 	public void removeLightBlocks()
 	{
-		int radius = GeneralConfig.searchRadius - 1;
-
-		for (int posX = -radius; posX <= radius; ++posX)
+		for (BlockPos pos : createdLights)
 		{
-			for (int posY = -radius; posY <= radius; ++posY)
-			{
-				for (int posZ = -radius; posZ <= radius; ++posZ)
-				{
-					tryRemoveLightBlock(pos.add(posX, posY, posZ));
-				}
-			}
+			tryRemoveLightBlock(pos);
 		}
+
+		createdLights.clear();
 	}
 
 	private void tryPlaceLightBlock(int x, int y, int z)
