@@ -1,6 +1,6 @@
 [{
-    "modid": "biglight",
-    "name": "Big Light",
+    "modid": "quantumlights",
+    "name": "Quantum Lights",
     "description": "A large-scale light source.",
     "version": "${version}",
     "mcversion": "${mcversion}",
