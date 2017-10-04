@@ -70,7 +70,7 @@ public class CommonProxy
 		IForgeRegistry<Block> REGISTRY = event.getRegistry();
 
 		REGISTRY.register(new BlockQuantumLamp());
-		GameRegistry.registerTileEntity(TileEntityQuantumLamp.class, QuantumLights.MODID + ":lamp");
+		GameRegistry.registerTileEntity(TileEntityQuantumLamp.class, QuantumLights.MODID + ":quantumlamp");
 
 		REGISTRY.register(new BlockLightAir());
 	}
