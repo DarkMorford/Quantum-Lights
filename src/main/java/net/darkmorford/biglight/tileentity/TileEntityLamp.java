@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class TileEntityLamp extends TileEntity implements ITickable
 {
-	private static final Block LIGHT_BLOCK      = Blocks.GLOWSTONE;
+	private static final Block LIGHT_BLOCK      = net.darkmorford.biglight.init.Blocks.blockLightAir;
 	private static final int   LIGHT_BLOCK_META = 0;
 
 	private Set<BlockPos> createdLights = new HashSet<>();
