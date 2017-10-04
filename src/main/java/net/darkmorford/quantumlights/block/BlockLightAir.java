@@ -1,4 +1,4 @@
-package net.darkmorford.biglight.block;
+package net.darkmorford.quantumlights.block;
 
 import net.minecraft.block.BlockAir;
 

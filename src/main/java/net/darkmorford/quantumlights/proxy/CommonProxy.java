@@ -1,11 +1,11 @@
-package net.darkmorford.biglight.proxy;
+package net.darkmorford.quantumlights.proxy;
 
-import net.darkmorford.biglight.BigLight;
-import net.darkmorford.biglight.block.BlockLamp;
-import net.darkmorford.biglight.block.BlockLightAir;
-import net.darkmorford.biglight.config.GeneralConfig;
-import net.darkmorford.biglight.init.Blocks;
-import net.darkmorford.biglight.tileentity.TileEntityLamp;
+import net.darkmorford.quantumlights.QuantumLights;
+import net.darkmorford.quantumlights.block.BlockQuantumLamp;
+import net.darkmorford.quantumlights.block.BlockLightAir;
+import net.darkmorford.quantumlights.config.GeneralConfig;
+import net.darkmorford.quantumlights.init.Blocks;
+import net.darkmorford.quantumlights.tileentity.TileEntityQuantumLamp;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -31,7 +31,7 @@ public class CommonProxy
 	{
 		// Process configuration file
 		File configDir = event.getModConfigurationDirectory();
-		config = new Configuration(new File(configDir.getPath(), "biglight.cfg"));
+		config = new Configuration(new File(configDir.getPath(), "quantumlights.cfg"));
 		try
 		{
 			config.load();
@@ -40,7 +40,7 @@ public class CommonProxy
 		}
 		catch (Exception e)
 		{
-			BigLight.logger.log(Level.ERROR, "Error loading config file!", e);
+			QuantumLights.logger.log(Level.ERROR, "Error loading config file!", e);
 		}
 		finally
 		{
@@ -69,8 +69,8 @@ public class CommonProxy
 	{
 		IForgeRegistry<Block> REGISTRY = event.getRegistry();
 
-		REGISTRY.register(new BlockLamp());
-		GameRegistry.registerTileEntity(TileEntityLamp.class, BigLight.MODID + ":lamp");
+		REGISTRY.register(new BlockQuantumLamp());
+		GameRegistry.registerTileEntity(TileEntityQuantumLamp.class, QuantumLights.MODID + ":lamp");
 
 		REGISTRY.register(new BlockLightAir());
 	}
@@ -80,6 +80,6 @@ public class CommonProxy
 	{
 		IForgeRegistry<Item> REGISTRY = event.getRegistry();
 
-		REGISTRY.register(new ItemBlock(Blocks.blockLamp).setRegistryName(Blocks.blockLamp.getRegistryName()));
+		REGISTRY.register(new ItemBlock(Blocks.blockQuantumLamp).setRegistryName(Blocks.blockQuantumLamp.getRegistryName()));
 	}
 }

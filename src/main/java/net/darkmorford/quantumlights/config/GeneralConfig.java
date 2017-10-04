@@ -1,4 +1,4 @@
-package net.darkmorford.biglight.config;
+package net.darkmorford.quantumlights.config;
 
 import net.minecraftforge.common.config.Configuration;
 

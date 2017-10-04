@@ -1,6 +1,6 @@
-package net.darkmorford.biglight.block;
+package net.darkmorford.quantumlights.block;
 
-import net.darkmorford.biglight.tileentity.TileEntityLamp;
+import net.darkmorford.quantumlights.tileentity.TileEntityQuantumLamp;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -15,9 +15,9 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockLamp extends Block implements ITileEntityProvider
+public class BlockQuantumLamp extends Block implements ITileEntityProvider
 {
-	public BlockLamp()
+	public BlockQuantumLamp()
 	{
 		super(Material.CIRCUITS);
 		setUnlocalizedName("lamp");
@@ -33,16 +33,16 @@ public class BlockLamp extends Block implements ITileEntityProvider
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
-		return new TileEntityLamp();
+		return new TileEntityQuantumLamp();
 	}
 
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
 	{
 		TileEntity te = worldIn.getTileEntity(pos);
-		if (te != null && te instanceof TileEntityLamp)
+		if (te != null && te instanceof TileEntityQuantumLamp)
 		{
-			((TileEntityLamp)te).removeLightBlocks();
+			((TileEntityQuantumLamp)te).removeLightBlocks();
 		}
 
 		super.breakBlock(worldIn, pos, state);
