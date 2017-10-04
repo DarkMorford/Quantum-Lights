@@ -20,8 +20,8 @@ public class BlockQuantumLamp extends Block implements ITileEntityProvider
 	public BlockQuantumLamp()
 	{
 		super(Material.CIRCUITS);
-		setUnlocalizedName("lamp");
-		setRegistryName("lamp");
+		setUnlocalizedName("quantumlamp");
+		setRegistryName("quantumlamp");
 
 		setCreativeTab(CreativeTabs.DECORATIONS);
 
