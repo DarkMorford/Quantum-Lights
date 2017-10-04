@@ -4,7 +4,7 @@
     "description": "A large-scale light source.",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "https://github.com/DarkMorford/Big-Light",
+    "url": "https://github.com/DarkMorford/Quantum-Lights",
     "updateUrl": "",
     "authorList": ["DarkMorford"],
     "credits": "",
