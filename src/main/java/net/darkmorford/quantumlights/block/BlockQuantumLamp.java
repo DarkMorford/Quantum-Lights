@@ -4,6 +4,9 @@ import net.darkmorford.quantumlights.tileentity.TileEntityQuantumLamp;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,6 +20,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockQuantumLamp extends Block implements ITileEntityProvider
 {
+	public static final PropertyBool      ATTACHED  = PropertyBool.create("attached");
+	public static final PropertyDirection DIRECTION = PropertyDirection.create("direction");
+
 	public BlockQuantumLamp()
 	{
 		super(Material.CIRCUITS);
@@ -28,6 +34,8 @@ public class BlockQuantumLamp extends Block implements ITileEntityProvider
 		setLightLevel(1.0F);
 		setHardness(2.0F);
 		setResistance(20.0F);
+
+		setDefaultState(blockState.getBaseState().withProperty(ATTACHED, false));
 	}
 
 	@Override
@@ -46,6 +54,12 @@ public class BlockQuantumLamp extends Block implements ITileEntityProvider
 		}
 
 		super.breakBlock(worldIn, pos, state);
+	}
+
+	@Override
+	public BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, ATTACHED, DIRECTION);
 	}
 
 	@SideOnly(Side.CLIENT)
