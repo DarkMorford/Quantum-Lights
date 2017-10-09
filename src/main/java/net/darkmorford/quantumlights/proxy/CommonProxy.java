@@ -10,6 +10,7 @@ import net.darkmorford.quantumlights.tileentity.TileEntityQuantumLamp;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -55,7 +56,6 @@ public class CommonProxy
 
 	public void init(FMLInitializationEvent event)
 	{
-		OreDictionary.registerOre("plateLumium", Items.itemLuminescentPlate);
 	}
 
 	public void postInit(FMLPostInitializationEvent event)
@@ -86,5 +86,13 @@ public class CommonProxy
 		REGISTRY.register(new ItemBlock(Blocks.blockQuantumLamp).setRegistryName(Blocks.blockQuantumLamp.getRegistryName()));
 
 		REGISTRY.register(new Item().setRegistryName("luminescentplate").setUnlocalizedName("luminescentplate"));
+	}
+
+	@SubscribeEvent
+	public static void registerOreDict(RegistryEvent.Register<IRecipe> event)
+	{
+		// "Stealing" this event handler for Ore Dictionary registration,
+		// since there's no event specifically for that.
+		OreDictionary.registerOre("plateLumium", Items.itemLuminescentPlate);
 	}
 }
