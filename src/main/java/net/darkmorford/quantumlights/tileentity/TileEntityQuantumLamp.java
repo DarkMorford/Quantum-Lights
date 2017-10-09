@@ -54,6 +54,11 @@ public class TileEntityQuantumLamp extends TileEntity implements ITickable
 	@Override
 	public void update()
 	{
+		if (world.isRemote)
+		{
+			return;
+		}
+
 		int radius = GeneralConfig.searchRadius;
 
 		// Select a random block inside our range
@@ -94,6 +99,11 @@ public class TileEntityQuantumLamp extends TileEntity implements ITickable
 
 	public void removeLightBlocks()
 	{
+		if (world.isRemote)
+		{
+			return;
+		}
+
 		for (BlockPos pos : createdLights)
 		{
 			tryRemoveLightBlock(pos);
