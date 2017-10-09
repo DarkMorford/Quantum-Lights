@@ -5,6 +5,7 @@ import net.darkmorford.quantumlights.block.BlockQuantumLamp;
 import net.darkmorford.quantumlights.block.BlockLightAir;
 import net.darkmorford.quantumlights.config.GeneralConfig;
 import net.darkmorford.quantumlights.init.Blocks;
+import net.darkmorford.quantumlights.init.Items;
 import net.darkmorford.quantumlights.tileentity.TileEntityQuantumLamp;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.Level;
 
@@ -53,6 +55,7 @@ public class CommonProxy
 
 	public void init(FMLInitializationEvent event)
 	{
+		OreDictionary.registerOre("plateLumium", Items.itemLuminescentPlate);
 	}
 
 	public void postInit(FMLPostInitializationEvent event)
@@ -81,5 +84,7 @@ public class CommonProxy
 		IForgeRegistry<Item> REGISTRY = event.getRegistry();
 
 		REGISTRY.register(new ItemBlock(Blocks.blockQuantumLamp).setRegistryName(Blocks.blockQuantumLamp.getRegistryName()));
+
+		REGISTRY.register(new Item().setRegistryName("luminescentplate").setUnlocalizedName("luminescentplate"));
 	}
 }

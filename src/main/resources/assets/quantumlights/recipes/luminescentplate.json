@@ -1,0 +1,28 @@
+{
+	"conditions": [
+		{
+			"type": "forge:not",
+			"value": {
+				"type": "forge:mod_loaded",
+				"modid": "thermalfoundation"
+			}
+		}
+	],
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "quantumlights:luminescentplate"
+	},
+	"pattern": [
+		"ggg",
+		"gig",
+		"ggg"
+	],
+	"key": {
+		"i": {
+			"item": "minecraft:iron_ingot"
+		},
+		"g": {
+			"item": "minecraft:glowstone_dust"
+		}
+	}
+}
