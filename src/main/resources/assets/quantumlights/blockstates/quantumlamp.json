@@ -1,7 +1,13 @@
 {
 	"forge_marker": 1,
 	"defaults": {
-		"model": "quantumlights:quantumlamp"
+		"custom": {
+			"flip-v": true
+		},
+		"model": "quantumlights:qlamp_on.obj",
+		"textures": {
+			"#qlamp": "quantumlights:blocks/qlamp_on"
+		}
 	},
 	"variants": {
 		"normal": [{}],
