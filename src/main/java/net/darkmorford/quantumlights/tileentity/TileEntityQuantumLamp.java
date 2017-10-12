@@ -1,6 +1,7 @@
 package net.darkmorford.quantumlights.tileentity;
 
 import net.darkmorford.quantumlights.config.GeneralConfig;
+import net.darkmorford.quantumlights.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -17,7 +18,7 @@ import java.util.Set;
 
 public class TileEntityQuantumLamp extends TileEntity implements ITickable
 {
-	private static final Block LIGHT_BLOCK      = net.darkmorford.quantumlights.init.Blocks.blockLightAir;
+	private static final Block LIGHT_BLOCK      = ModBlocks.blockLightAir;
 	private static final int   LIGHT_BLOCK_META = 0;
 
 	private Set<BlockPos> createdLights = new HashSet<>();

@@ -4,8 +4,8 @@ import net.darkmorford.quantumlights.QuantumLights;
 import net.darkmorford.quantumlights.block.BlockQuantumLamp;
 import net.darkmorford.quantumlights.block.BlockLightAir;
 import net.darkmorford.quantumlights.config.GeneralConfig;
-import net.darkmorford.quantumlights.init.Blocks;
-import net.darkmorford.quantumlights.init.Items;
+import net.darkmorford.quantumlights.init.ModBlocks;
+import net.darkmorford.quantumlights.init.ModItems;
 import net.darkmorford.quantumlights.tileentity.TileEntityQuantumLamp;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -83,7 +83,7 @@ public class CommonProxy
 	{
 		IForgeRegistry<Item> REGISTRY = event.getRegistry();
 
-		REGISTRY.register(new ItemBlock(Blocks.blockQuantumLamp).setRegistryName(Blocks.blockQuantumLamp.getRegistryName()));
+		REGISTRY.register(new ItemBlock(ModBlocks.blockQuantumLamp).setRegistryName(ModBlocks.blockQuantumLamp.getRegistryName()));
 
 		REGISTRY.register(new Item().setRegistryName("luminescentplate").setUnlocalizedName("luminescentplate"));
 	}
@@ -93,6 +93,6 @@ public class CommonProxy
 	{
 		// "Stealing" this event handler for Ore Dictionary registration,
 		// since there's no event specifically for that.
-		OreDictionary.registerOre("plateLumium", Items.itemLuminescentPlate);
+		OreDictionary.registerOre("plateLumium", ModItems.itemLuminescentPlate);
 	}
 }

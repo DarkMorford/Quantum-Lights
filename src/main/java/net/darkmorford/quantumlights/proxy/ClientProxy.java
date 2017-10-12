@@ -1,7 +1,7 @@
 package net.darkmorford.quantumlights.proxy;
 
-import net.darkmorford.quantumlights.init.Blocks;
-import net.darkmorford.quantumlights.init.Items;
+import net.darkmorford.quantumlights.init.ModBlocks;
+import net.darkmorford.quantumlights.init.ModItems;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -13,7 +13,7 @@ public class ClientProxy extends CommonProxy
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event)
 	{
-		Blocks.initModels();
-		Items.initModels();
+		ModBlocks.initModels();
+		ModItems.initModels();
 	}
 }
