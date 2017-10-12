@@ -1,7 +1,7 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 06.10.2017 22:56:35
+# File Created: 12.10.2017 18:22:56
 
-mtllib qlampwall.mtl
+mtllib qlamp_off.mtl
 
 #
 # object qlampwall
