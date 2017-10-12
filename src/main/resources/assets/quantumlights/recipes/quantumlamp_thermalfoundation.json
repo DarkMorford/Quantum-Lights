@@ -1,14 +1,11 @@
 {
 	"conditions": [
 		{
-			"type": "forge:not",
-			"value": {
-				"type": "forge:mod_loaded",
-				"modid": "thermalfoundation"
-			}
+			"type": "forge:mod_loaded",
+			"modid": "thermalfoundation"
 		}
 	],
-	"type": "minecraft:crafting_shaped",
+	"type": "forge:ore_shaped",
 	"result": {
 		"item": "quantumlights:quantumlamp"
 	},
@@ -22,7 +19,8 @@
 			"item": "minecraft:glowstone"
 		},
 		"p": {
-			"item": "quantumlights:luminescentplate"
+			"type": "forge:ore_dict",
+			"ore": "plateLumium"
 		},
 		"i": {
 			"item": "minecraft:iron_ingot"
