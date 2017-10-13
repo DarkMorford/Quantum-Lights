@@ -20,9 +20,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockQuantumLamp extends Block implements ITileEntityProvider
 {
-	public static final PropertyBool      ATTACHED  = PropertyBool.create("attached");
-	public static final PropertyDirection DIRECTION = PropertyDirection.create("direction");
-
 	public BlockQuantumLamp()
 	{
 		super(Material.CIRCUITS);
@@ -34,8 +31,6 @@ public class BlockQuantumLamp extends Block implements ITileEntityProvider
 		setLightLevel(1.0F);
 		setHardness(2.0F);
 		setResistance(20.0F);
-
-		setDefaultState(blockState.getBaseState().withProperty(ATTACHED, false));
 	}
 
 	@Override
@@ -54,12 +49,6 @@ public class BlockQuantumLamp extends Block implements ITileEntityProvider
 		}
 
 		super.breakBlock(worldIn, pos, state);
-	}
-
-	@Override
-	public BlockStateContainer createBlockState()
-	{
-		return new BlockStateContainer(this, ATTACHED, DIRECTION);
 	}
 
 	@SideOnly(Side.CLIENT)
