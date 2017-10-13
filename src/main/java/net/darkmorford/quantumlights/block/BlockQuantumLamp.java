@@ -12,7 +12,9 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -55,5 +57,27 @@ public class BlockQuantumLamp extends Block implements ITileEntityProvider
 	public void initModel()
 	{
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
+
+	@Override
+	@Deprecated
+	@SideOnly(Side.CLIENT)
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess worldIn, BlockPos pos, EnumFacing side)
+	{
+		return false;
+	}
+
+	@Override
+	@Deprecated
+	public boolean isBlockNormalCube(IBlockState blockState)
+	{
+		return false;
+	}
+
+	@Override
+	@Deprecated
+	public boolean isOpaqueCube(IBlockState blockState)
+	{
+		return false;
 	}
 }

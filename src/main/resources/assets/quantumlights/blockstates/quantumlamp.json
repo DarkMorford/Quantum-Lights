@@ -7,6 +7,15 @@
 		"model": "quantumlights:qlamp_on.obj",
 		"textures": {
 			"#qlamp": "quantumlights:blocks/qlamp_on"
+		},
+		"transform": {
+			"gui": {
+				"scale": 0.9
+			},
+			"thirdperson": {
+				"scale": 0.5
+			},
+			"translation": [0, 1, 0]
 		}
 	},
 	"variants": {
