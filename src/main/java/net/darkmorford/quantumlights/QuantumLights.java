@@ -19,8 +19,8 @@ import org.apache.logging.log4j.Logger;
 public class QuantumLights
 {
 	public static final String MODID = "quantumlights";
-	public static final String MODNAME = "Big Light";
-	public static final String VERSION = "1.12.1-0.0.0.0";
+	public static final String MODNAME = "Quantum Lights";
+	public static final String VERSION = "1.12.1-0.0.0.1";
 
 	@Mod.Instance
 	public static QuantumLights instance;
